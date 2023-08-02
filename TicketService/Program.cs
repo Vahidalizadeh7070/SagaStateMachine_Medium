@@ -1,6 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using TicketService.Models;
+using TicketService.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+// Connection string
+var connectionString = builder.Configuration.GetConnectionString("DbConnection");
+builder.Services.AddDbContextPool<AppDbContext>(db => db.UseSqlServer(connectionString));
+
+
+// Register Ticket Service
+builder.Services.AddScoped<ITicketServices, TicketServices>();
+
 
 var app = builder.Build();
 
