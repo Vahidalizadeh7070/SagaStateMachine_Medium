@@ -1,10 +1,20 @@
+using GenerateTicket.Consumers;
 using GenerateTicket.Models;
 using GenerateTicket.Services;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+// Register MassTransit 
+builder.Services.AddMassTransit(cfg =>
+{
+    cfg.AddBus(provider => MessageBrokers.RabbitMQ.ConfigureBus(provider));
+    cfg.AddConsumer<GenerateTicketConsumer>();
+    cfg.AddConsumer<CancelSendingEmailConsumer>();
+});
 
 // Connection string
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");

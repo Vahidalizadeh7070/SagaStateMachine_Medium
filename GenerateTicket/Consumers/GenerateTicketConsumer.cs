@@ -48,7 +48,8 @@ namespace GenerateTicket.Consumers
                             Email = data.Email,
                             RequireDate = data.RequireDate,
                             Age = data.Age,
-                            Location = data.Location
+                            Location = data.Location,
+                            TicketNumber = res.TicketNumber
                         });
                         _logger.LogInformation($"Message sent == TicketId is {data.TicketId}");
                     }
