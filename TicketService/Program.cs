@@ -14,7 +14,8 @@ builder.Services.AddDbContextPool<AppDbContext>(db => db.UseSqlServer(connection
 // Register Ticket Service
 builder.Services.AddScoped<ITicketServices, TicketServices>();
 
-
+// Register AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 
