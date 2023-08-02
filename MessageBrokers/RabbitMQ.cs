@@ -21,7 +21,7 @@ namespace MessageBrokers
                     hst.Username(RabbitMQConfig.UserName);
                     hst.Password(RabbitMQConfig.Password);
                 });
-
+                
                 cfg.ConfigureEndpoints(serviceProvider.GetRequiredService<IBusRegistrationContext>());
             });
         }
