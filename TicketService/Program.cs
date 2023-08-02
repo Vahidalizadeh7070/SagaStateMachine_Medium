@@ -23,10 +23,12 @@ builder.Services.AddMassTransit(cfg =>
             // Get Consumer
             ep.ConfigureConsumer<GetValueConsumer>(provider);
             // Cancel Consumer
+            ep.ConfigureConsumer<GenerateTicketCancelConsumer>(provider);
         });
     }));
 
     cfg.AddConsumer<GetValueConsumer>();
+    cfg.AddConsumer<GenerateTicketCancelConsumer>();
 });
 
 // Register Ticket Service
