@@ -39,10 +39,10 @@ namespace SagaStateMachine
                 {
                     context.Saga.TicketId = context.Message.TicketId;
                     context.Saga.Title = context.Message.Title;
-                    context.Saga.Email = context.Saga.Email;
+                    context.Saga.Email = context.Message.Email;
                     context.Saga.TicketNumber = context.Message.TicketNumber;
                     context.Saga.Age = context.Message.Age;
-                    context.Saga.Location = context.Saga.Location;
+                    context.Saga.Location = context.Message.Location;
                 }).TransitionTo(AddTicket).Publish(context => new GenerateTicketEvent(context.Saga)));
 
             // During AddTicketEvent some other events might occured 
@@ -53,10 +53,10 @@ namespace SagaStateMachine
                     // These values could be different 
                     context.Saga.TicketId = context.Message.TicketId;
                     context.Saga.Title = context.Message.Title;
-                    context.Saga.Email = context.Saga.Email;
+                    context.Saga.Email = context.Message.Email;
                     context.Saga.TicketNumber = context.Message.TicketNumber;
                     context.Saga.Age = context.Message.Age;
-                    context.Saga.Location = context.Saga.Location;
+                    context.Saga.Location = context.Message.Location;
                 }).TransitionTo(SendEmail));
 
             During(AddTicket,
@@ -66,10 +66,10 @@ namespace SagaStateMachine
                     // These values could be different 
                     context.Saga.TicketId = context.Message.TicketId;
                     context.Saga.Title = context.Message.Title;
-                    context.Saga.Email = context.Saga.Email;
+                    context.Saga.Email = context.Message.Email;
                     context.Saga.TicketNumber = context.Message.TicketNumber;
                     context.Saga.Age = context.Message.Age;
-                    context.Saga.Location = context.Saga.Location;
+                    context.Saga.Location = context.Message.Location;
                 }).TransitionTo(CancelTicket));
 
             // During SendEmailEvent some other events might occured 
@@ -80,10 +80,10 @@ namespace SagaStateMachine
                     // These values could be different 
                     context.Saga.TicketId = context.Message.TicketId;
                     context.Saga.Title = context.Message.Title;
-                    context.Saga.Email = context.Saga.Email;
+                    context.Saga.Email = context.Message.Email;
                     context.Saga.TicketNumber = context.Message.TicketNumber;
                     context.Saga.Age = context.Message.Age;
-                    context.Saga.Location = context.Saga.Location;
+                    context.Saga.Location = context.Message.Location;
                 }).TransitionTo(CancelSendEmail));
         }
 

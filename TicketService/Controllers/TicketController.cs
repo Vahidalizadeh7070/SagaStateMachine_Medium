@@ -30,7 +30,7 @@ namespace TicketService.Controllers
         {
             var mapModel = _mapper.Map<Ticket>(addTicketDTO);
 
-            var res = _ticketServices.AddTicket(mapModel);
+            var res = await _ticketServices.AddTicket(mapModel);
 
             if (res is not null)
             {
