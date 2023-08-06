@@ -19,3 +19,6 @@ As shown in the above image, a client will send a request to TicketService to re
 - RabbitMQ
 - Docker
 - Postman
+
+## YouTube 
+https://youtu.be/dTI4FF7VogU 
